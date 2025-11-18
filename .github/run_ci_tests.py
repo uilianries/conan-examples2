@@ -156,6 +156,8 @@ def run_example(example, workspace, runner_os) -> None:
     example_file = example_path.name
 
     print(f"##[group]Running example: {example_dir}")
+    print(f"===[group] RUNNING : {example_dir}")
+
 
     # Change to example directory
     os.chdir(workspace / example_dir)
@@ -173,6 +175,8 @@ def run_example(example, workspace, runner_os) -> None:
     finally:
         os.chdir(workspace)
         print(f"##[endgroup]: {example_dir}")
+        print(f"===[endgroup]: {example_dir}")
+
 
 def main():
     """
