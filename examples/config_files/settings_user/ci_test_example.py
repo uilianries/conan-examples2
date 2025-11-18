@@ -23,6 +23,8 @@ compiler.version=12.0
 os=Macos
 """
 
+# Trigger CI
+
 
 def install_settings_user_yml():
     settings_user_yml = os.path.join(cur_dir, "sources", "settings_user.yml")
