@@ -155,9 +155,8 @@ def run_example(example, workspace, runner_os) -> None:
     example_dir = example_path.parent
     example_file = example_path.name
 
+    # Use GitHub Actions grouping for better log readability
     print(f"##[group]Running example: {example_dir}")
-    print(f"===[group] RUNNING : {example_dir}")
-
 
     # Change to example directory
     os.chdir(workspace / example_dir)
@@ -174,8 +173,7 @@ def run_example(example, workspace, runner_os) -> None:
                 print("Skipping .bat file on non-Windows platform")
     finally:
         os.chdir(workspace)
-        print(f"##[endgroup]: {example_dir}")
-        print(f"===[endgroup]: {example_dir}")
+        print(f"##[endgroup]")
 
 
 def main():
