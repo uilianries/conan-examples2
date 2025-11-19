@@ -7,12 +7,17 @@ install_cmd = "conan install . -c tools.system.package_manager:mode=install " \
               "-c tools.system.package_manager:sudo=True -s compiler.cppstd=17 --build=missing "
 
 if platform.system() == "Windows":
-    install_cmd += "-c tools.cmake.cmaketoolchain:system_version=10.0" # to force CMake pick a newer SDK
+    # install_cmd += "-c tools.cmake.cmaketoolchain:system_version=10.0" # to force CMake pick a newer SDK
+    pass
 elif platform.system() == "Linux":
     # affected by this: https://github.com/conan-io/conan-center-index/issues/18951
-    install_cmd += "--build=libx26* --build=openjpeg*"
+    # install_cmd += "--build=libx26* --build=openjpeg*"
     # install_cmd += "--build=libx26* -c \"libx26*:tools.build:cxxflags=+['-fno-finite-math-only']\" " \
     #                "--build=openjpeg* -c \"openjpeg*:tools.build:cxxflags=+['-fno-finite-math-only']\""
+    pass
+
+install_cmd += "-pr replaced.profile"
+
 
 run(install_cmd)
 
@@ -44,3 +49,5 @@ else:
     run("cmake . -G \"Unix Makefiles\" -DCMAKE_TOOLCHAIN_FILE=build/Release/generators/conan_toolchain.cmake -DCMAKE_POLICY_DEFAULT_CMP0091=NEW -DCMAKE_BUILD_TYPE=Release")
     run("cmake --build .")
     run("./pose-estimation --no-windows --image=assets/dancing.png")
+
+# Trigger CI
