@@ -134,10 +134,6 @@ def filter_exclusions(examples, is_pr) -> list:
         if "cross_building" in example:
             continue
 
-        # FIXME: Filter out tensorflow examples in PRs
-        if is_pr and "tensorflow" in example:
-            continue
-
         filtered.append(example)
 
     return filtered
