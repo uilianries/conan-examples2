@@ -7,7 +7,8 @@ install_cmd = "conan install . -c tools.system.package_manager:mode=install " \
               "-c tools.system.package_manager:sudo=True -s compiler.cppstd=17 --build=missing "
 
 if platform.system() == "Windows":
-    install_cmd += "-c tools.cmake.cmaketoolchain:system_version=10.0" # to force CMake pick a newer SDK
+    # install_cmd += "-c tools.cmake.cmaketoolchain:system_version=10.0" # to force CMake pick a newer SDK
+    pass
 elif platform.system() == "Linux":
     # affected by this: https://github.com/conan-io/conan-center-index/issues/18951
     # install_cmd += "--build=libx26* --build=openjpeg*"
