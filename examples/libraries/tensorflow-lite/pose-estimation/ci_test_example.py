@@ -44,3 +44,5 @@ else:
     run("cmake . -G \"Unix Makefiles\" -DCMAKE_TOOLCHAIN_FILE=build/Release/generators/conan_toolchain.cmake -DCMAKE_POLICY_DEFAULT_CMP0091=NEW -DCMAKE_BUILD_TYPE=Release")
     run("cmake --build .")
     run("./pose-estimation --no-windows --image=assets/dancing.png")
+
+# Trigger CI
