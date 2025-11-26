@@ -3,10 +3,11 @@ from test.examples_tools import run
 
 print("Pose estimation example with Tensorflow Lite and OpenCV")
 
-install_cmd = "conan install . -c tools.system.package_manager:mode=install " \
+install_cmd = "conan lock create . -c tools.system.package_manager:mode=install " \
               "-c tools.system.package_manager:sudo=true -s compiler.cppstd=17 --build=missing "
-
 run(install_cmd)
+
+run("cat conan.lock")
 
 # with presets
 
